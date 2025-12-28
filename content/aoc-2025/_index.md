@@ -1,5 +1,7 @@
 +++
 title = "Advent of Code 2025 in 12 Languages"
+readingTime = false
+dateFormat = "\u0020"
 +++
 
 As 2025 turned out to be a shorter event compared to previous years, I thought
