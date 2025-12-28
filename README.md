@@ -1,3 +1,4 @@
 # Clstrfsck's Random Thoughts
 
-You can see the content [here](https://clstrfsck.github.io/).
+More information
+[here on clstrfsck.github.io](https://clstrfsck.github.io/).
