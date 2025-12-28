@@ -1,6 +1,7 @@
 use std::collections::{HashSet, VecDeque};
 use good_lp::{
-    constraint, default_solver, variable, variables, Expression, Solution, SolverModel
+    constraint, default_solver, variable,
+    variables, Expression, Solution, SolverModel
 };
 
 #[derive(Debug, Clone)]
@@ -10,7 +11,10 @@ struct Machine {
     joltage: Vec<i32>,
 }
 
-fn solve_machine1(indicators: &HashSet<usize>, buttons: &[HashSet<usize>]) -> usize {
+fn solve_machine1(
+    indicators: &HashSet<usize>,
+    buttons: &[HashSet<usize>]
+) -> usize {
     let mut queue = VecDeque::from([(HashSet::new(), 0)]);
     let mut seen: HashSet<Vec<usize>> = HashSet::from([vec![]]);
 
@@ -51,7 +55,8 @@ fn solve_machine2(joltage: &[i32], buttons: &[HashSet<usize>]) -> f64 {
         problem = problem.with(constraint!(sum == target));
     }
 
-    problem.solve().map_or(f64::INFINITY, |sol| x.iter().map(|&v| sol.value(v)).sum())
+    problem.solve().map_or(f64::INFINITY, |sol| x.iter().map(|&v| sol.value(v))
+        .sum())
 }
 
 fn parse_machines(input: &str) -> Vec<Machine> {
@@ -79,7 +84,8 @@ fn parse_machines(input: &str) -> Vec<Machine> {
 }
 
 fn main() {
-    let input = std::fs::read_to_string("../y25d10.txt").expect("Failed to read file");
+    let input = std::fs::read_to_string("../y25d10.txt")
+        .expect("Failed to read file");
     let machines = parse_machines(&input);
 
     let result1: usize = machines.iter().map(|m|
