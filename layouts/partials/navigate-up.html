@@ -1,0 +1,16 @@
+{{/* Check if the current page has a parent list page */}}
+{{ if .Parent }}
+  <nav class="up-navigation">
+    <a href="{{ .Parent.RelPermalink }}">
+      &larr; To
+      {{ .Parent.Title | default ( .Parent.LinkTitle | default ( .Parent.Section | humanize ) ) }}
+    </a>
+  </nav>
+{{ else if not .IsHome }}
+  {{/* If it's a top-level section, its parent would logically be Home */}}
+  <nav class="up-navigation">
+    <a href="{{ "/" | relURL }}">
+      &larr; To Home
+    </a>
+  </nav>
+{{ end }}
